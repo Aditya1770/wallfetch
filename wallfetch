@@ -1,0 +1,69 @@
+#!/bin/python
+
+import os
+import requests
+import random
+import string
+from tqdm import tqdm
+import argparse
+
+
+def getWallpaper(query):
+    url = f"https://wallhaven.cc/api/v1/search?q={query}"
+    links = []
+    res = requests.get(url)
+    jsonData = res.json()
+    for link in jsonData["data"]:
+        links.append(link["path"])
+    return links
+
+
+def downloadWall(url, download_folder):
+    res = requests.get(url, stream=True)
+
+    def wallName():
+        return "".join(random.choices(string.ascii_lowercase, k=4))
+
+    name = wallName()
+    path = os.path.join(download_folder, f"{name}.png")
+    print(f"==> Downloading... {name}")
+
+    total_size = int(res.headers.get("content-length", 0))
+    block_size = 1024
+
+    with open(path, "wb") as file, tqdm(
+        total=total_size, unit="B", unit_scale=True, unit_divisor=1024, colour="green"
+    ) as bar:
+        for data in res.iter_content(block_size):
+            file.write(data)
+            bar.update(len(data))
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Script to download wallpapers from Wallhaven.cc"
+    )
+    parser.add_argument("query", help="Search query for wallpapers")
+    parser.add_argument(
+        "-f",
+        default=f"{os.path.expanduser('~')}/Pictures/wallpapers",
+        metavar="FOLDER",
+        help=f"Specify a custom download folder (uses ~/Pictures/wallpapers/ as default)",
+    )
+    args = parser.parse_args()
+
+    query = args.query
+    download_folder = args.f
+
+    if not os.path.exists(download_folder):
+        print(f"Creating wallpapers folder in {os.path.expanduser('~')}/Pictures")
+        os.makedirs(download_folder)
+
+    wallpapers = getWallpaper(query)
+
+    for wallpaper_url in wallpapers:
+        downloadWall(wallpaper_url, download_folder)
+
+
+if __name__ == "__main__":
+    main()
