@@ -27,6 +27,12 @@ Run the installation Script
 sh install.sh
 ```
 
+## Uninstalltion
+
+```
+sh uninstall.sh
+```
+
 ## Python libraries used
 
 - requests
