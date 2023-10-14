@@ -4,7 +4,11 @@ Script to download wallpapers from Wallhaven.cc written in Python
 
 ## Demo
 
-https://github.com/Aditya1770/wallfetch/assets/82564283/0443362e-8e24-46c2-b013-5db9c999e465
+
+
+https://github.com/Aditya1770/wallfetch/assets/82564283/ae3dbee2-028b-4e3b-bf7f-8cd9d04db793
+
+
 
 ## Usage
 
