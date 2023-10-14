@@ -27,7 +27,7 @@ Run the installation Script
 sh install.sh
 ```
 
-## Uninstalltion
+## Uninstallation
 
 ```
 sh uninstall.sh
