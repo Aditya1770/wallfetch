@@ -27,6 +27,11 @@ Clone the repo
 git clone https://github.com/Aditya1770/wallfetch.git && cd wallfetch
 ```
 
+Install the required libraries
+```
+pip install -r requirements.txt
+```
+
 Run the installation Script
 ```
 sh install.sh
