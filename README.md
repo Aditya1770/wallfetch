@@ -13,7 +13,7 @@ https://github.com/Aditya1770/wallfetch/assets/82564283/ae3dbee2-028b-4e3b-bf7f-
 ## Usage
 
 ```
-wallfetch "cute anime girl"
+wallfetch "Optimus prime"
 ```
 
 ```
