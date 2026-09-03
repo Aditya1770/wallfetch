@@ -220,6 +220,8 @@ wallfetch cyberpunk --page 3:5 #will get wallpaper from page 3 to 5
 
 
 You can get your Wallhaven API key through your Account Settings and going to Account:
+<img width="1429" height="868" alt="api_key" src="https://github.com/user-attachments/assets/a040d7f6-f647-45ad-8f84-058d0b1e0591" />
+
 
 You can save your Wallhaven API key using:
 
