@@ -1,51 +1,120 @@
 # wallfetch
 
-Script to download wallpapers from Wallhaven.cc written in Python
+A simple command-line tool for searching and downloading wallpapers from [Wallhaven](https://wallhaven.cc/).
+
+`wallfetch` lets you search for wallpapers directly from your terminal and download the results to a local directory.
 
 ## Demo
 
+<video src="assets/demo.mp4" controls width="100%"></video>
 
+## Features
 
-https://github.com/Aditya1770/wallfetch/assets/82564283/ae3dbee2-028b-4e3b-bf7f-8cd9d04db793
-
-
-
-## Usage
-
-```
-wallfetch "Optimus prime"
-```
-
-```
-wallfetch -f "/home/aditya/wallpapers/" "cars" # -f for custom download folder
-``` 
+* Search for wallpapers directly from the terminal
+* Fetch wallpapers from Wallhaven
+* Download multiple wallpapers from search results
+* Progress bars for downloads
+* Save wallpapers to `~/Pictures/wallpapers` by default
+* Specify a custom download directory
+* Simple CLI interface
+* Install globally as the `wallfetch` command
 
 ## Installation
 
-Clone the repo
-```
-git clone https://github.com/Aditya1770/wallfetch.git && cd wallfetch
+Clone the repository:
+
+```bash
+git clone https://github.com/Aditya1770/wallfetch.git
+cd wallfetch
 ```
 
-Install the required libraries
+Run the installer:
+
+```bash
+chmod +x install.sh
+./install.sh
 ```
+
+After installation, `wallfetch` should be available globally:
+
+```bash
+wallfetch
+```
+
+## Usage
+
+Search for wallpapers:
+
+```bash
+wallfetch <query>
+```
+
+For example:
+
+```bash
+wallfetch cyberpunk
+```
+
+or:
+
+```bash
+wallfetch "dark forest"
+```
+
+By default, downloaded wallpapers are stored in:
+
+```text
+~/Pictures/wallpapers
+```
+
+### Custom download directory
+
+Use the `-f` option to specify where the wallpapers should be saved:
+
+```bash
+wallfetch -f <directory> <query>
+```
+
+For example:
+
+```bash
+wallfetch -f ~/Pictures/cyberpunk cyberpunk
+```
+
+## Dependencies
+
+`wallfetch` requires Python 3 and the Python packages used by the project.
+
+Install the required packages with:
+
+```bash
 pip install -r requirements.txt
 ```
 
-Run the installation Script
-```
-sh install.sh
-```
+## Uninstall
 
-## Uninstallation
+If `wallfetch` was installed to `/usr/local/bin`, remove it with:
 
-```
-sh uninstall.sh
+```bash
+sudo rm /usr/local/bin/wallfetch
 ```
 
-## Python libraries used
+## Why wallfetch?
 
-- requests
-- tqdm
+Sometimes you just want to find a wallpaper without opening a browser, searching through a website, downloading the image, and moving it to your wallpaper directory.
 
+With `wallfetch`, you can do it straight from the terminal:
 
+```bash
+wallfetch mountains
+```
+
+## Contributing
+
+Contributions, bug reports, and suggestions are welcome.
+
+If you'd like to improve `wallfetch`, fork the repository, make your changes, and open a pull request.
+
+## License
+
+This project is licensed under the MIT License. See [`LICENSE`](LICENSE) for more information.
