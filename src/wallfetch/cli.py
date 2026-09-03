@@ -13,6 +13,18 @@ class HelpFormatter(argparse.HelpFormatter):
             width=100,
         )
 
+
+def parse_pages(value):
+    if ":" in value:
+        start, end = map(int, value.split(":", 1))
+
+        if start < 1 or end < 1:
+            raise argparse.ArgumentTypeError("Pages must be greater than 0")
+        if start > end:
+            raise argparse.ArgumentTypeError("Start page cannot be greater than end page")
+
+        return range(start, end+1)
+
 def main():
 
     defaults = config.getDefaults()
@@ -89,10 +101,10 @@ def main():
 
     parser.add_argument(
         "--page",
-        type=int,
+        type=parse_pages,
         default=defaults["page"],
         metavar="PAGE",
-        help="Results page (default: 1)",
+        help="Results page or range, eg: 2 or 2:5",
     )
     
     parser.add_argument(
@@ -160,7 +172,20 @@ def main():
     
     api_key = config.getAPI_key()
 
-    wallpapers = api.getWallpaper(query, sort, order, purity, categories, page, api_key)
+    wallpapers = []
+
+    for range in args.page:
+        wallpapers.extend(
+            api.getWallpaper(
+                query,
+                sort,
+                order,
+                purity,
+                categories,
+                page,
+                api_key
+            )
+        )
 
     for wallpaper in wallpapers[:count]:
         downloader.downloadWall(wallpaper, download_folder)
