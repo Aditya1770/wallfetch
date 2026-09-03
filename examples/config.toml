@@ -1,0 +1,11 @@
+[api]
+api_key = ""
+
+[defaults]
+folder = "~/Pictures/wallfetch/"
+sorting = "date_added"
+order = "desc"
+purity = "100"
+categories = "111"
+page = 1
+

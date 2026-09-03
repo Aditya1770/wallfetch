@@ -126,7 +126,7 @@ def main():
     if args.set_api_key is not None:
         api_key = args.set_api_key
         config.saveAPI_key(api_key)
-        print("API ket saved")
+        print("API key saved")
         return
 
     if set_download_folder is not None:
@@ -143,7 +143,7 @@ def main():
     if args.config:
         api_key = config.getAPI_key()
 
-        if api_key is None:
+        if api_key is None or api_key=="":
             print(f"{RED}API key is not configured{RESET}")
         else:
             print(f"{YELLOW}API key configured{RESET}")
