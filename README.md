@@ -54,6 +54,9 @@ Install `wallfetch` in the virtual environment:
 ```bash
 python -m pip install .
 ```
+```bash
+python -m pip install -e . #for editable installation
+```
 
 You can now use:
 
@@ -208,6 +211,11 @@ Use `--page` to get wallpapers from another page of the search results:
 wallfetch cyberpunk --page 2
 ```
 
+Additionally you can provide a range to to get wallpapers from certain range:
+```bash
+wallfetch cyberpunk --page 3:5 #will get wallpaper from page 3 to 5
+```
+
 ### API Key
 
 You can save your Wallhaven API key using:
@@ -261,7 +269,8 @@ wallfetch "night city" -n 10 -s favorites -o desc -c 111 -p 100 --page 2
 - [Requests](https://requests.readthedocs.io/) for API requests and downloads
     
 - [Rich](https://github.com/Textualize/rich) for download progress bars
-    
+	
+- [tomli_w](https://github.com/hukkin/tomli-w) for editing .toml files
 
 The dependencies are installed automatically when running:
 
