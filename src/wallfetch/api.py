@@ -1,40 +1,43 @@
 import requests
 
-def getWallpaper(query, api_key=None):
-    
+
+def getWallpaper(
+    query,
+    sorting="date_added",
+    order="desc",
+    purity="100",
+    categories="111",
+    page=1,
+    api_key=None
+):
+
+    url = "https://wallhaven.cc/api/v1/search"
+
+    parameters = {
+        "q": query,
+        "sorting": sorting,
+        "order": order,
+        "purity": purity,
+        "categories": categories,
+        "page": page
+    }
+
     if api_key is not None:
-        url = f"https://wallhaven.cc/api/v1/search?q={query}&apikey={api_key}"
+        parameters["apikey"] = api_key
 
-        wallpaper_info = []
+    res = requests.get(url, params=parameters)
+    res.raise_for_status()
+    jsonData = res.json()
 
-        res = requests.get(url)
-        jsonData = res.json()
-        
-        for info in jsonData["data"]:
-            wall_info = {}
-            wall_info['id'] = info["id"]
-            wall_info['url'] = info["path"]
-            wall_info['filetype'] = info["file_type"].split("/")[1]
+    wallpaper_info = []
 
-            wallpaper_info.append(wall_info)
+    for info in jsonData["data"]:
+        wall_info = {
+            "id": info["id"],
+            "url": info["path"],
+            "filetype": info["file_type"].split("/")[1],
+        }
 
-        return wallpaper_info
-    
-    else:
-        url = f"https://wallhaven.cc/api/v1/search?q={query}"
+        wallpaper_info.append(wall_info)
 
-        wallpaper_info = []
-
-        res = requests.get(url)
-        jsonData = res.json()
-        
-        for info in jsonData["data"]:
-            wall_info = {}
-            wall_info['id'] = info["id"]
-            wall_info['url'] = info["path"]
-            wall_info['filetype'] = info["file_type"].split("/")[1]
-
-            wallpaper_info.append(wall_info)
-
-        return wallpaper_info
-
+    return wallpaper_info

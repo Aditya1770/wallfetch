@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "wallfetch"
+version = "0.1.0"
+description = "A CLI tool for downloading wallpapers from Wallhaven.cc"
+readme = "README.md"
+requires-python = ">=3.11"
+
+dependencies = [
+    "requests",
+    "rich",
+]
+
+
+[project.scripts]
+wallfetch = "wallfetch.cli:main"
+
+
+[tool.setuptools.packages.find]
+where = ["src"]
