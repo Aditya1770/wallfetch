@@ -35,8 +35,14 @@ def main():
         "--folder",
         metavar="FOLDER",
         default=defaults["folder"],
-        help="Download folder (uses ~/Picutes/wallfetch by default)",
+        help="Download folder",
     )
+
+    parser.add_argument(
+            "--set-folder",
+            metavar="DEF_FOLDER",
+            help="Set default download folder",
+            )
 
     parser.add_argument(
         "-s",
@@ -109,6 +115,7 @@ def main():
 
     query = args.query
     download_folder = args.folder
+    set_download_folder = args.set_folder
     count = args.count
     sort = args.sorting
     order = args.order
@@ -117,18 +124,33 @@ def main():
     page = args.page
 
     if args.set_api_key is not None:
-        api_key = input("Wallhaven API key: ")
+        api_key = args.set_api_key
         config.saveAPI_key(api_key)
         print("API ket saved")
         return
+
+    if set_download_folder is not None:
+        config.saveDownload(set_download_folder)
+        print("Default folder saved")
+        return
+
+    RED = '\033[31m'
+    YELLOW = '\033[33m'
+    GREEN = '\033[32m'
+    BLUE = '\033[34m'
+    RESET = '\033[0m'
 
     if args.config:
         api_key = config.getAPI_key()
 
         if api_key is None:
-            print("API key is not configured")
+            print(f"{RED}API key is not configured{RESET}")
         else:
-            print("API key configured")
+            print(f"{YELLOW}API key configured{RESET}")
+
+        print(f"{BLUE}Defaults:{RESET}")
+        for default in defaults:
+            print(f"\t{GREEN}{default}{RESET}: {defaults[default]}")
 
         return
 

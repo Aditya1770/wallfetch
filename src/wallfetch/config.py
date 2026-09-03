@@ -43,3 +43,20 @@ def saveAPI_key(api_key):
     
     with config_path.open(mode="wb") as file:
         tomli_w.dump(config, file)
+
+def saveDownload(path):
+    config_path.parent.mkdir(parents=True, exist_ok=True)
+
+    config = {}
+    
+    if config_path.exists():
+        with config_path.open(mode="rb") as file:
+            config = tomllib.load(file)
+
+    if "api" not in config:
+        config["api"] = {}
+
+    config["defaults"]["folder"] = path
+    
+    with config_path.open(mode="wb") as file:
+        tomli_w.dump(config, file)
