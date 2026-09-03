@@ -1,6 +1,7 @@
 .venv/
 tests/
 __pycache__/
+src/wallfetch/__pycache__/
 *.py[cod]
 *.egg-info/
 .pytest_cache/
