@@ -14,6 +14,10 @@ class HelpFormatter(argparse.HelpFormatter):
         )
 
 def main():
+
+    defaults = config.getDefaults()
+    # print(defaults)
+
     parser = argparse.ArgumentParser(
         prog="wallfetch",
         description="Script to download wallpapers from Wallhave.cc",
@@ -30,7 +34,7 @@ def main():
         "-f",
         "--folder",
         metavar="FOLDER",
-        default="~/Pictures/wallfetch",
+        default=defaults["folder"],
         help="Download folder (uses ~/Picutes/wallfetch by default)",
     )
 
@@ -46,6 +50,7 @@ def main():
             "toplist",
             "hot",
         ],
+        default=defaults["sorting"],
         metavar="SORT",
         help="Sort the wallpapers",
     )
@@ -54,7 +59,7 @@ def main():
         "-o",
         "--order",
         choices=["asc", "desc"],
-        default="desc",
+        default=defaults["order"],
         help="Sorting order (default: desc)",
     )
 
@@ -62,7 +67,7 @@ def main():
         "-p",
         "--purity",
         choices=["100", "110", "111", "001", "011", "101", "010"],
-        default="100",
+        default=defaults["purity"],
         metavar="PURITY",
         help="SFW/Sketchy/NSFW filters"
     )
@@ -71,7 +76,7 @@ def main():
         "-c",
         "--categories",
         choices=["100", "110", "111", "001", "011", "101", "010"],
-        default="111",
+        default=defaults["categories"],
         metavar="CATS",
         help="General/Anime/People"
     )
@@ -79,7 +84,7 @@ def main():
     parser.add_argument(
         "--page",
         type=int,
-        default=1,
+        default=defaults["page"],
         metavar="PAGE",
         help="Results page (default: 1)",
     )
