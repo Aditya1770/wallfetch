@@ -6,7 +6,11 @@ A simple command-line tool for searching and downloading wallpapers from [Wallha
 
 ## Demo
 
-<video src="assets/demo.mp4" controls width="100%"></video>
+
+
+https://github.com/user-attachments/assets/512eb70d-b4b5-4091-8ef2-7de765692f51
+
+
 
 ## Features
 
