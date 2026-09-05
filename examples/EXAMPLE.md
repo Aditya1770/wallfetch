@@ -14,12 +14,12 @@ categories = "111"
 page = 1
 ```
 
-### Where
+## Where
 `api_key`: stores user's api key
 
 in `[defaults]` the structure follows as
 
-`sorting`
+### sorting
 |Value|Sort by|
 |---|---|
 |`date_added`|Date added|
@@ -30,10 +30,10 @@ in `[defaults]` the structure follows as
 |`toplist`|Toplist|
 |`hot`|Hot|
 
-`order`
+### order
 `asc` or `desc`
 
-`purity`
+### purity
 ```text
 SFW / Sketchy / NSFW
 ```
@@ -49,7 +49,7 @@ SFW / Sketchy / NSFW
 |`111`|All|
 
 
-`categories`
+### categories
 ```
 General / Anime / People
 ```
@@ -67,4 +67,5 @@ General / Anime / People
 |`111`|All|
 
 
-`page`: default starting page
+### page
+default starting page
