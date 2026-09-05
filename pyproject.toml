@@ -10,12 +10,25 @@ description = "A CLI tool for downloading wallpapers from Wallhaven.cc"
 readme = "README.md"
 requires-python = ">=3.11"
 
+authors = [{ name = "Aditya1770" }]
+
 dependencies = [
     "requests",
     "rich",
     "tomli-w",
 ]
 
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Multimedia :: Graphics",
+]
+
+[project.urls]
+Homepage = "https://github.com/Aditya1770/wallfetch"
+Repository = "https://github.com/Aditya1770/wallfetch"
+Issues = "https://github.com/Aditya1770/wallfetch/issues"
 
 [project.scripts]
 wallfetch = "wallfetch.cli:main"

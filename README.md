@@ -35,6 +35,13 @@ https://github.com/user-attachments/assets/512eb70d-b4b5-4091-8ef2-7de765692f51
 
 ## Installation
 
+Install from PyPI:
+```
+pip install wallfetch
+```
+
+or from source:
+
 Clone the repository:
 
 ```bash
