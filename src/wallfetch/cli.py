@@ -135,6 +135,7 @@ def main():
     categories = args.categories
     page = args.page
 
+    
     if args.set_api_key is not None:
         api_key = args.set_api_key
         config.saveAPI_key(api_key)
@@ -174,7 +175,7 @@ def main():
 
     wallpapers = []
 
-    for range in args.page:
+    for i in range(args.page):
         wallpapers.extend(
             api.getWallpaper(
                 query,
