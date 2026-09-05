@@ -1,4 +1,4 @@
-# wallfetch
+# [wallfetch](https://pypi.org/project/wallfetch/)
 
 A simple command-line tool for searching and downloading wallpapers from [Wallhaven.cc](https://wallhaven.cc/).
 
