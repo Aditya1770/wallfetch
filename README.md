@@ -1,6 +1,6 @@
 # wallfetch
 
-A simple command-line tool for searching and downloading wallpapers from [Wallhaven](https://wallhaven.cc/).
+A simple command-line tool for searching and downloading wallpapers from [Wallhaven.cc](https://wallhaven.cc/).
 
 `wallfetch` lets you search and download wallpapers directly from the terminal without having to open Wallhaven in a browser.
 
