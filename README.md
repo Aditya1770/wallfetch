@@ -297,13 +297,7 @@ Since `wallfetch` is installed via pip, you can uninstall it with:
 pip uninstall wallfetch
 ```
 
-Else if you installed `wallfetch` through cloning the repository inside the virtual environment, you can uninstall it with:
-
-```bash
-python -m pip uninstall wallfetch
-```
-
-Or just remove the virtual environment:
+Else if you installed it inside a dedicated virtual environment, you can alternatively remove the virtual environment entirely:
 
 ```bash
 rm -rf .venv
